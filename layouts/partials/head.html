@@ -1,0 +1,16 @@
+{{/* Meta data */}}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+{{/* 1. Lấy file từ thư mục assets */}}
+{{ $opts := dict "transpiler" "libsass" "targetPath" "css/style.css" }}
+{{ $style := resources.Get "scss/main.scss" | toCSS $opts }}
+
+{{/* 2. Nếu ở môi trường Production thì nén và đánh dấu phiên bản */}}
+{{ if hugo.IsProduction }}
+{{ $style = $style | minify | fingerprint }}
+{{ end }}
+
+{{/* 3. Chèn link CSS vào HTML */}}
+<link rel="stylesheet" href="{{ $style.RelPermalink }}" {{ if hugo.IsProduction }}
+    integrity="{{ $style.Data.Integrity }}" {{ end }}>

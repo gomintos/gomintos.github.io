@@ -1,0 +1,28 @@
+# . đại điện cho ngữ cảnh (context) ở đây là Page Object.
+# Trong Page Object ta có thể truy cập Front Matter qua Params Object
+
+# Get a Image file
+{{ 
+partial "functions/get_image.html" (dict 
+"page" . 
+"pathImage" .Params.image 
+"alt" "advertisement"
+"class" "listItemImage" ) 
+}}
+
+# Get a SVG file
+{{ partial "functions/get_svg.html" "images/icons/telegram.svg" }}
+
+# Render Auhors
+{{ range (.GetTerms "authors") }}
+<a href="{{ .Permalink }}" class="listItemAuthor">{{ .Name }}</a>
+{{ end }}
+
+# Render Categories
+{{ range (.GetTerms "categories") }}
+<a href="{{ .Permalink }}" class="listItemCategory">{{ .Name }}</a>
+{{ end }}
+
+# Format time
+# formatTime: dịnh dạng time được khai báo trung hugo.toml, sử dụng toàn cục
+{{ .Date.Format .Site.Params.formatTime }}

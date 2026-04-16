@@ -1,0 +1,17 @@
+<nav class="navbar">
+    <div class="logo">
+        <a href="/">lamablog</a>
+    </div>
+    <div class="links">
+        <a href="/">Homepage</a>
+        <a href="/categories">Categories</a>
+        <div class="searchButton">
+            {{ with resources.Get "/images/icons/search.svg"}}
+            <span class="icon">{{ .Content | safeHTML }}</span>
+            {{ else }}
+            <span class="icon-placeholder">🔍</span>
+            {{ end }}
+            <span>Search</span>
+        </div>
+    </div>
+</nav>

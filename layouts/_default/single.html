@@ -1,0 +1,45 @@
+{{ define "main" }}
+<div class="single">
+    <div class="singleHead">
+        <div class="singleHeadTexts">
+            <div class="singleHeadTitle">{{ .Title }}</div>
+            <p class="singleHeadDesc">{{ .Params.description }}</p>
+            <div class="singleHeadDetail">
+                {{/* Avatar Image */}}
+                {{
+                partial "functions/get_image.html" (dict
+                "page" .
+                "pathImage" .Params.avatar
+                "alt" "author's avatar"
+                "class" "singleAvatar" )
+                }}
+                <span>
+                    {{ range (.GetTerms "authors") }}
+                    <a href="{{ .Permalink }}">{{ .Name }}</a>
+                    {{ end }}
+                </span>
+                <span>
+                    {{ range (.GetTerms "categories") }}
+                    <a href="{{ .Permalink }}" class="categoriesTags">{{ .Name }}</a>
+                    {{ end }}
+                </span>
+            </div>
+            <time>{{ .Date.Format .Site.Params.formatTime }}</time>
+        </div>
+        {{/* Post Image */}}
+        {{
+        partial "functions/get_image.html" (dict
+        "page" .
+        "pathImage" .Params.imageBig
+        "class" "singleHeadImg" )
+        }}
+    </div>
+    <div class="singleBottom">
+        <div class="singleContent">{{ .Content }}</div>
+        <div class="singleRightBar">
+            {{ partial "rightBar" . }}
+        </div>
+    </div>
+
+</div>
+{{ end }}

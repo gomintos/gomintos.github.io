@@ -1,0 +1,14 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: $bg;
+    color: $text;
+}
+
+a {
+    color: $text;
+    text-decoration: none;
+}

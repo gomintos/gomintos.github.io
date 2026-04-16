@@ -1,0 +1,44 @@
+{{/* Nhận tham số truyền vào dưới dạng một dictionary (dict)
+.page: Ngữ cảnh của bài viết (.)
+.class: Tên class muốn gán cho thẻ img
+*/}}
+
+{{ $page := .page }}
+{{ $class := .class | default "image-df" }}
+{{ $pathImage := .pathImage | default "images/default.png" }}
+{{ $defaultImage := .defaultImage | default "images/default.png" }}
+{{ $alt := .alt | default "" }}
+
+
+{{ if not $alt }}
+{{ $alt = $page.Title }}
+{{ end }}
+
+
+{{ $image := "" }}
+
+{{/* Kiểm tra xem đây có phải là Page Bundle không */}}
+{{ if $page.Resources }}
+{{ if $pathImage }}
+{{ $image = $page.Resources.Get $pathImage }}
+{{ end }}
+{{ end }}
+
+{{/* Nếu vẫn rỗng, thử tìm trong assets (dành cho logo, avatar dùng chung) */}}
+{{ if not $image }}
+{{ if $pathImage }}
+{{ $image = resources.Get $pathImage }}
+{{ end }}
+{{ end }}
+
+{{/* Cuối cùng lấy ảnh mặc định */}}
+{{ if not $image }}
+{{ $image = resources.Get $defaultImage }}
+{{ end }}
+
+{{/* RENDER */}}
+{{ with $image }}
+{{ $optimized := .Process "webp q80" }}
+<img src="{{ $optimized.Permalink }}" class="{{ $class }}" alt="{{ $alt }}" loading="lazy"
+    width="{{ $optimized.Width }}" height="{{ $optimized.Height }}">
+{{ end }}

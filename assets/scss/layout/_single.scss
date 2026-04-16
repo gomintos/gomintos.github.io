@@ -1,0 +1,96 @@
+.singleHead {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    .singleHeadTexts {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .singleHeadImg {
+        width: 40%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .singleHeadTitle {
+        font-size: 48px;
+    }
+
+    .singleHeadDesc {
+        font-size: 20px;
+        font-weight: 300;
+    }
+
+    .singleHeadDetail {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        .singleAvatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    }
+}
+
+.singleBottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    margin-top: 50px;
+
+    .singleContent {
+        flex: 3;
+        font-size: 20px;
+        line-height: 32px;
+    }
+
+    .singleRightBar {
+        flex: 1;
+
+        .rightBar {
+            position: sticky;
+            top: 100px;
+
+            .rightBarImg {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+
+    .singleContent p,
+    .singleContent h1,
+    .singleContent h2,
+    .singleContent h3 {
+        margin: 20px 0;
+        font-family: $primary-font;
+        letter-spacing: 0.1rem;
+        /* Tăng khoảng cách giữa các con chữ */
+        line-height: 1.5;
+        /* Tăng khoảng cách giữa các dòng nếu tiêu đề bị xuống dòng */
+        text-transform: uppercase;
+        /* Thử dòng này nếu muốn chữ đều và "crazy" hơn nữa */
+        margin-bottom: 1.5rem;
+        /* Tạo khoảng cách với phần mô tả bên dưới */
+    }
+
+    .singleContent img {
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .singleContent pre {
+        width: 100%;
+        overflow-x: scroll;
+        padding: 20px;
+    }
+}

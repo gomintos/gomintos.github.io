@@ -1,0 +1,64 @@
+/* LIST START */
+.list {
+    .listItem {
+        display: flex;
+        align-items: center;
+        gap: 50px;
+        margin-bottom: 50px;
+
+        .listItemImage {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .listItemTexts {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .listItemTitle a {
+            color: $textLink;
+        }
+    }
+
+    .listItemCategories {
+        display: flex;
+        gap: 10px;
+
+        .listItemCategory {
+            padding: 5px;
+            border-radius: 5px;
+            background-color: $bgSoft;
+            color: $textSoft;
+            font-size: 14px;
+        }
+    }
+}
+
+.list .listItemDetail {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+
+    .listItemAvatar {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        object-fit: cover;
+
+    }
+}
+
+
+
+/* LIST END */
+
+.categoriesTags {
+    padding: 5px;
+    border-radius: 5px;
+    background-color: $bgSoft;
+    color: $textSoft;
+}

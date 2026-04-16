@@ -1,0 +1,18 @@
+@import "font";
+@import "variables";
+@import "vendor/reset";
+
+// 2. Cài đặt gốc
+@import "base/base";
+
+// 3. Cấu trúc khung
+@import "layout/layout";
+@import "layout/single";
+
+// 4. Các thành phần giao diện
+@import "components/navbar";
+@import "components/footer";
+@import "components/components";
+
+// 5. Media Query nên nằm cuối cùng để đảm bảo tính Responsive
+@import "media-query";

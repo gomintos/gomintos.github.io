@@ -1,0 +1,10 @@
+baseURL = 'https://example.org/'
+locale = 'en-us'
+title = 'My website with Hugo'
+
+[params]
+  formatTime = "Jan 2, 2006"
+
+[taxonomies]
+  author = "authors"
+  category = "categories"

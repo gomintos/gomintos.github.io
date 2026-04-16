@@ -1,0 +1,10 @@
+{{ $path := . }}
+{{ $svg := "" }}
+
+{{ if resources.Get $path }}
+{{ $svg = (resources.Get $path).Content | safeHTML }}
+{{ else }}
+{{ warnf "Không tìm thấy file SVG tại đường dẫn: %s" $path }}
+{{ end }}
+
+{{ return $svg }}
